@@ -8,7 +8,8 @@
   - name: installing apache package
     apt:
       name: apache2
-      state: latest 
+      state: latest
+    when: ansible_distribution == "ubuntu"    
   - name: update cache
     apt:
       update_cache: true 

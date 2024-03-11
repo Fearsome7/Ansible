@@ -1,0 +1,34 @@
+
+---
+
+- hosts: all
+  tags: always
+  become: true
+  gather_facts: no
+  tasks:
+ 
+  - name: installing apache package
+    apt:
+      name: apache2
+      state: latest
+
+
+- hosts: server_1
+  tags: server1
+  become: true
+  tasks:
+
+  - name: update cache
+    apt:
+      update_cache: true
+ 
+- hosts: server_2
+  tags: server2
+  become: true
+  tasks: 
+
+  - name: install samba  package
+    package: 
+      name: samba
+      state: latest
+
