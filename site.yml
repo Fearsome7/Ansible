@@ -21,7 +21,16 @@
   - name: update cache
     apt:
       update_cache: true
- 
+  
+  - name: copy files
+    tags: copy
+    copy:
+      src: default_site.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: 0644
+
 - hosts: server_2
   tags: server2
   become: true
